@@ -84,7 +84,7 @@ class SendSMS {
 				);
 			}
 			// $start_time = '2970-01-01 02:00:00';
-			$start_time = '';
+			$start_time = date('Y-m-d H:i:s');
 			$name       = 'WordPress - ' . get_site_url() . ' - ' . uniqid();
 			$data       = file_get_contents( SENDSMS_DASHBOARD_PLUGIN_DIRECTORY . '/batches/batch.csv' );
 			$results    = json_decode(

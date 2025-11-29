@@ -44,6 +44,15 @@ class Sendsms_Dashboard {
 	 * @var    string    $version    The current version of the plugin.
 	 */
 	protected $version;
+    
+    /**
+	 * Plugin name.
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string    $plugin_name    The plugin name.
+	 */
+    protected $plugin_name;
 
 	/**
 	 * Define the core functionality of the plugin.

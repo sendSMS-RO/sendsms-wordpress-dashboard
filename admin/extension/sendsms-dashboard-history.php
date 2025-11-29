@@ -130,12 +130,12 @@ class Sendsms_Dashboard_History extends WP_List_Table {
 
 		// die();
 		if ( ! empty( $_REQUEST['s'] ) ) {
-			$search  = "AND phone LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
+			$search  = "AND (phone LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
 			$search .= "OR message LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
 			$search .= "OR content LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
 			$search .= "OR `type` LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
 			$search .= "OR details LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
-			$search .= "OR sent_on LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%' ";
+			$search .= "OR sent_on LIKE '%" . esc_sql( $wpdb->esc_like( $_REQUEST['s'] ) ) . "%') ";
 		}
 
 		if ( isset( $_GET['orderby'] ) && isset( $columns[ $_GET['orderby'] ] ) ) {
