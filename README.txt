@@ -2,8 +2,8 @@
 Contributors: catalinsendsms
 Tags: sms, admin, dashboard, sendsms, marketing, subscribers, campaign, phone, 2fa
 Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: 1.0.2
+Tested up to: 7.0
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,11 @@ SendSMS Dashboard > SMS sending
 This is the place where you can send an SMS to your subscribers/ users
 
 == Changelog ==
+
+= 1.0.3 =
+* WordPress 7.0 compatibility.
+* PHP 8.3 compatibility: removed deprecated FILTER_SANITIZE_STRING usage in the 2FA login handlers.
+* Synced version numbers across the plugin header, version constant and stable tag.
 
 = 1.0 =
 * Initial version

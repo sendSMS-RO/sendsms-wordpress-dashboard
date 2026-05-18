@@ -776,10 +776,11 @@ class Sendsms_Dashboard_Admin {
 	}
 
 	public function login_form_sendsms_validate() {
-		 $wp_auth_id = filter_input( INPUT_POST, 'wp-auth-id', FILTER_SANITIZE_NUMBER_INT );
-		$nonce       = filter_input( INPUT_POST, 'wp-auth-nonce', FILTER_SANITIZE_STRING );
-		$phone       = filter_input( INPUT_POST, 'wp-auth-phone', FILTER_SANITIZE_STRING ) != ''
-			? filter_input( INPUT_POST, 'wp-auth-phone', FILTER_SANITIZE_STRING )
+		$wp_auth_id  = filter_input( INPUT_POST, 'wp-auth-id', FILTER_SANITIZE_NUMBER_INT );
+		$nonce       = isset( $_POST['wp-auth-nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wp-auth-nonce'] ) ) : '';
+		$posted_phone = isset( $_POST['wp-auth-phone'] ) ? sanitize_text_field( wp_unslash( $_POST['wp-auth-phone'] ) ) : '';
+		$phone       = $posted_phone !== ''
+			? $posted_phone
 			: $this->functions->get_user_phone( $wp_auth_id );
 		if ( ! $wp_auth_id || ! $nonce ) {
 			return;
@@ -865,7 +866,7 @@ class Sendsms_Dashboard_Admin {
 
 	public function login_form_sendsms_send_code() {
 		$wp_auth_id = filter_input( INPUT_POST, 'wp-auth-id', FILTER_SANITIZE_NUMBER_INT );
-		$nonce      = filter_input( INPUT_POST, 'wp-auth-nonce', FILTER_SANITIZE_STRING );
+		$nonce      = isset( $_POST['wp-auth-nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wp-auth-nonce'] ) ) : '';
 
 		if ( ! $wp_auth_id || ! $nonce ) {
 			return;
